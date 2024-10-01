@@ -16,10 +16,10 @@ const Navbar = () => {
 
         {/* Contact Info - Hidden on mobile */}
         <div className="hidden lg:flex items-center space-x-4 text-black">
-          <a href="mailto:info@example.com" className="hover:text-blue-700">
+          <a href="lahiruheshan454@gmail.com" className="hover:text-blue-700">
             <span className="mr-2">📧</span>lahiruheshan454@gmail.com
           </a>
-          <a href="tel:+1234567890" className="hover:text-blue-700">
+          <a href="tel:+94764165833" className="hover:text-blue-700">
             <span className="mr-2">📞</span>+94 (76) 4165-833
           </a>
         </div>

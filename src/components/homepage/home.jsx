@@ -70,11 +70,7 @@ const HomePage = () => {
            
             <div className="flex justify-center items-center">
         <div className="md:w-2/1 mb-8 md:mb-0">
-          <img
-            src="/girljump.png"
-            alt="Image"
-            className="shaking-image w-full rounded-lg "
-          />
+          <img src="/girljump.png"  alt="hello" className="shaking-image w-full rounded-lg "  />
         </div>
       </div>
             {/* Right Side: Paragraph */}
