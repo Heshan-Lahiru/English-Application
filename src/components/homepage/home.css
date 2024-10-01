@@ -1,0 +1,47 @@
+@keyframes moveCards {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-move-cards {
+    animation: moveCards 20s linear infinite;
+    width: calc(20 * 6rem);
+  }
+
+  
+  @media (max-width: 1024px) {
+    .animate-move-cards {
+      width: calc(8 * 6rem);
+    }
+  }
+ 
+  @media (max-width: 810px) {
+    .animate-move-cards {
+      width: calc(6 * 6rem);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .animate-move-cards {
+      width: calc(4 * 6rem);
+    }
+    .text-4xl {
+color:black;
+    }
+  }
+  @media (max-width: 440px) {
+    .animate-move-cards {
+      width: calc(2 * 6rem);
+    }
+  }
+  .shaking-image {
+    animation: shake 3.0s infinite;
+  }
+
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-20px); }
+    50% { transform: translateX(20px); }
+    75% { transform: translateX(-20px); }
+    100% { transform: translateX(0); }
+  }
