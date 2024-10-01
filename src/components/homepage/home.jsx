@@ -100,7 +100,7 @@ const HomePage = () => {
           <span className="mt-2 text-lg font-semibold">Beginner</span>
         </Link>
 
-        <Link to="/pre-intermediate" className="flex flex-col items-center mb-4 md:mb-0">
+        <Link to="/preIntermediate" className="flex flex-col items-center mb-4 md:mb-0">
           <div className="bg-white p-6 rounded-full shadow-lg hover:shadow-xl transition-shadow duration-300">
             <i className="fas fa-book-open text-4xl"></i> {/* Icon for Pre Intermediate */}
           </div>
