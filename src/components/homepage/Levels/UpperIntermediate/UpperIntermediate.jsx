@@ -1,12 +1,54 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import Nav from '../../../nav_footer/nav';
 import Footer from '../../../nav_footer/footer';
 
 const UpperIntermediate = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []); 
+
+  const [accessGranted, setAccessGranted] = useState(false); // Tracks if access is granted
+  const [inputCode, setInputCode] = useState(''); // Tracks the entered code
+  const [errorMessage, setErrorMessage] = useState(''); // Tracks error messages for incorrect code
+
+
+  const handleCodeSubmit = () => {
+    if (inputCode === '369789') {
+      setAccessGranted(true); 
+      setErrorMessage(''); 
+    } else {
+      setErrorMessage('Incorrect code. Please try again.'); 
+    }
+  };
+
   return (
     <>
     <Nav />
     <div className="bg-gray-100 min-h-screen py-12">
+    {!accessGranted ? (
+          <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">Enter Access Code</h2>
+              <p>Access to the code requires successfully passing the Intermediate-level exam.</p>
+              <input
+                type="text"
+                value={inputCode}
+                onChange={(e) => setInputCode(e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-lg mb-4"
+                placeholder="Enter code"
+              />
+              {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
+              <button
+                onClick={handleCodeSubmit}
+                className="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300"
+              >
+                Submit Code
+              </button>
+            </div>
+          </div>
+        ) : (
+
       <div className="container mx-auto px-4">
         {/* Header Section */}
         <section className="text-center mb-12">
@@ -90,7 +132,20 @@ const UpperIntermediate = () => {
             </div>
           </div>
         </section>
+
+        <div class="py-12">
+      {/* Exam Link Section */}
+ <section className="text-center">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">Ready for the Exam?</h2>
+          <p className="text-xl text-gray-600 mb-6">Take the next step to validate your proficiency.</p>
+          <Link to="/codefour" className="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">
+            Go to Exam Page
+          </Link>
+        </section>
+</div>
+
       </div>
+    )}  
     </div>
     <Footer />
     </>

@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Nav from '../nav_footer/nav';
 import Footer from '../nav_footer/footer';
 
 const Services = () => {
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []); 
   const [selectedBook, setSelectedBook] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 

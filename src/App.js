@@ -11,8 +11,14 @@ import Intermediate from './components/homepage/Levels/Intermediate/Intermediate
 import UpperIntermediate from './components/homepage/Levels/UpperIntermediate/UpperIntermediate';
 import Advanced from './components/homepage/Levels/Advanced/Advanced';
 import Proficient from './components/homepage/Levels/Proficient/Proficient';
-import CertificateExam from './components/homepage/Levels/Advanced/CertificateExam/CertificateExam';
-import Certificate from './components/homepage/Levels/Advanced/CertificateExam/Certificate';
+import CertificateExam from './components/homepage/Levels/Proficient/CertificateExam/CertificateExam';
+import Certificate from './components/homepage/Levels/Proficient/CertificateExam/Certificate';
+
+import Codefive from './components/homepage/Levels/Advanced/CertificateExam/codefive';
+import Codeone from './components/homepage/Levels/Beginner/CertificateExam/codeone';
+import Codethree from './components/homepage/Levels/Intermediate/CertificateExam/codethree';
+import Codetwo from './components/homepage/Levels/Pre_Intermediate/CertificateExam/codetwo';
+import Codefour from './components/homepage/Levels/UpperIntermediate/CertificateExam/codefour';
 
 function App() {
   return (
@@ -30,6 +36,11 @@ function App() {
         <Route path="/certificate" element={<Certificate />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/codeone" element={<Codeone />} />
+        <Route path="/codetwo" element={<Codetwo />} />
+        <Route path="/codethree" element={<Codethree />} />
+        <Route path="/codefour" element={<Codefour />} />
+        <Route path="/codefive" element={<Codefive />} />
 
       </Routes>
     </Router>

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Nav from '../nav_footer/nav';
 import Footer from '../nav_footer/footer';
 
 const ContactUs = () => {
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []); 
   // Sample teacher data
   const teachers = [
     {

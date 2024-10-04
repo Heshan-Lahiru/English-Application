@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import Nav from '../../../nav_footer/nav';
 import Footer from '../../../nav_footer/footer';
 
 const Beginner = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []); 
   return (
     <>
 <Nav />
@@ -80,7 +84,16 @@ const Beginner = () => {
         </div>
       </section>
 
-     
+<div class="py-12">
+      {/* Exam Link Section */}
+ <section className="text-center">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">Ready for the Exam?</h2>
+          <p className="text-xl text-gray-600 mb-6">Take the next step to validate your proficiency.</p>
+          <Link to="/codeone" className="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">
+            Go to Exam Page
+          </Link>
+        </section>
+</div>
     </div>
     <Footer />
     </>

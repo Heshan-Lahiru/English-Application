@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Nav from '../nav_footer/nav';
 import Footer from '../nav_footer/footer';
 
 const UserProfile = () => {
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []); 
   const user = {
     name: 'Lahiru Heshan',
     email: 'lahiru@gmail.com',

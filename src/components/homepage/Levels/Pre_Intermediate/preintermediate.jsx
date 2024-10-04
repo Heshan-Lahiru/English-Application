@@ -1,78 +1,118 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Nav from '../../../nav_footer/nav';
 import Footer from '../../../nav_footer/footer';
-
+import {Link} from 'react-router-dom';
 const PreIntermediate = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []); 
+  const [accessGranted, setAccessGranted] = useState(false); // Tracks if access is granted
+  const [inputCode, setInputCode] = useState(''); // Tracks the entered code
+  const [errorMessage, setErrorMessage] = useState(''); // Tracks error messages for incorrect code
+
+
+  const handleCodeSubmit = () => {
+    if (inputCode === '134678') {
+      setAccessGranted(true); 
+      setErrorMessage(''); 
+    } else {
+      setErrorMessage('Incorrect code. Please try again.'); 
+    }
+  };
+
   return (
     <>
-    <Nav />
-    <div className="bg-white-100 min-h-screen">
-      {/* Hero Section */}
-      <div className="relative w-full h-96 bg-cover bg-center" style={{ backgroundImage: 'url(https://cdn.prod.website-files.com/6364b6fd26e298b11fb9391f/6364b6fd26e2987413b93db0_3d-education-2cv.png)' }}>
-        <div className="absolute inset-0 "></div>
-        <div className="flex justify-center items-center h-full">
-          
-        </div>
-      </div>
-
-      {/* Introduction Section */}
-      <section className="container mx-auto py-12 px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800">Welcome to Pre Intermediate English</h2>
-          <p className="text-xl text-gray-600 mt-4">At this level, you will improve your grammar, build your vocabulary, and become more confident in speaking English. Let's get started with advanced concepts!</p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="flex flex-col justify-center">
-            <h3 className="text-2xl font-semibold text-gray-800">Step 1: Grammar Rules</h3>
-            <p className="text-gray-600 mt-4">Understanding grammar is crucial at this stage. Focus on past tense, future tense, and conditionals. Learning these will help you communicate complex ideas.</p>
-            
-            <h3 className="text-2xl font-semibold text-gray-800 mt-8">Step 2: Expand Vocabulary</h3>
-            <p className="text-gray-600 mt-4">Pre-Intermediate learners should aim to learn 10-15 new words a day. Focus on verbs, adjectives, and adverbs that are common in everyday conversations.</p>
-            
-            <h3 className="text-2xl font-semibold text-gray-800 mt-8">Step 3: Conversation Practice</h3>
-            <p className="text-gray-600 mt-4">The more you practice speaking with others, the more fluent you will become. Start speaking about daily topics like travel, work, and hobbies with confidence.</p>
+      <Nav />
+      <div className="bg-white-100 min-h-screen">
+        {/* If access is not granted, show code input form */}
+        {!accessGranted ? (
+          <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">Enter Access Code</h2>
+              <p>Access to the code requires successfully passing the beginner-level exam.</p>
+              <input
+                type="text"
+                value={inputCode}
+                onChange={(e) => setInputCode(e.target.value)}
+                className="w-full p-3 border border-gray-300 rounded-lg mb-4"
+                placeholder="Enter code"
+              />
+              {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
+              <button
+                onClick={handleCodeSubmit}
+                className="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300"
+              >
+                Submit Code
+              </button>
+            </div>
           </div>
-          
+        ) : (
+          // If access is granted, show the PreIntermediate content
           <div>
-            <img src="https://img.freepik.com/free-vector/freelancer-concept-illustration_114360-7590.jpg" alt="Learning Process" className="w-full rounded-lg " />
-          </div>
-        </div>
-      </section>
+            {/* Hero Section */}
+            <div className="relative w-full h-96 bg-cover bg-center" style={{ backgroundImage: 'url(https://cdn.prod.website-files.com/6364b6fd26e298b11fb9391f/6364b6fd26e2987413b93db0_3d-education-2cv.png)' }}>
+              <div className="absolute inset-0 "></div>
+              <div className="flex justify-center items-center h-full">
+              </div>
+            </div>
 
-   {/* Vocabulary Building Section */}
-<section className="bg-white py-12">
-  <div className="container mx-auto text-center">
-    <h2 className="text-4xl font-bold text-gray-800">Build Your Vocabulary</h2>
-    <p className="text-xl text-gray-600 mt-4">
-      Below is a list of common words at the Pre-Intermediate level. Click on each word to learn its meaning and pronunciation.
-    </p>
+            {/* Introduction Section */}
+            <section className="container mx-auto py-12 px-4">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-gray-800">Welcome to Pre Intermediate English</h2>
+                <p className="text-xl text-gray-600 mt-4">At this level, you will improve your grammar, build your vocabulary, and become more confident in speaking English. Let's get started with advanced concepts!</p>
+              </div>
 
-    {/* Updated Grid for Responsive Layout */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-12">
-      {[
-        'Travel',
-        'Food',
-        'Health',
-        'Technology',
-        'Work',
-        'Leisure',
-        'Hobbies',
-        'Education',
-        'Family',
-        'Nature',
-        'Sports',
-        'Transport',
-      ].map((word) => (
-        <div key={word} className="bg-gray-200 p-6 rounded-lg shadow-lg hover:bg-gray-300 transition duration-300">
-          <h3 className="text-2xl font-bold text-gray-800">{word}</h3>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="flex flex-col justify-center">
+                  <h3 className="text-2xl font-semibold text-gray-800">Step 1: Grammar Rules</h3>
+                  <p className="text-gray-600 mt-4">Understanding grammar is crucial at this stage. Focus on past tense, future tense, and conditionals. Learning these will help you communicate complex ideas.</p>
 
+                  <h3 className="text-2xl font-semibold text-gray-800 mt-8">Step 2: Expand Vocabulary</h3>
+                  <p className="text-gray-600 mt-4">Pre-Intermediate learners should aim to learn 10-15 new words a day. Focus on verbs, adjectives, and adverbs that are common in everyday conversations.</p>
 
+                  <h3 className="text-2xl font-semibold text-gray-800 mt-8">Step 3: Conversation Practice</h3>
+                  <p className="text-gray-600 mt-4">The more you practice speaking with others, the more fluent you will become. Start speaking about daily topics like travel, work, and hobbies with confidence.</p>
+                </div>
+
+                <div>
+                  <img src="https://img.freepik.com/free-vector/freelancer-concept-illustration_114360-7590.jpg" alt="Learning Process" className="w-full rounded-lg" />
+                </div>
+              </div>
+            </section>
+
+            {/* Vocabulary Building Section */}
+            <section className="bg-white py-12">
+              <div className="container mx-auto text-center">
+                <h2 className="text-4xl font-bold text-gray-800">Build Your Vocabulary</h2>
+                <p className="text-xl text-gray-600 mt-4">
+                  Below is a list of common words at the Pre-Intermediate level. Click on each word to learn its meaning and pronunciation.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-12">
+                  {[
+                    'Travel',
+                    'Food',
+                    'Health',
+                    'Technology',
+                    'Work',
+                    'Leisure',
+                    'Hobbies',
+                    'Education',
+                    'Family',
+                    'Nature',
+                    'Sports',
+                    'Transport',
+                  ].map((word) => (
+                    <div key={word} className="bg-gray-200 p-6 rounded-lg shadow-lg hover:bg-gray-300 transition duration-300">
+                      <h3 className="text-2xl font-bold text-gray-800">{word}</h3>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+           
       {/* Listening & Speaking Section */}
       <section className="container mx-auto py-12 px-4">
         <div className="text-center mb-8">
@@ -121,10 +161,21 @@ const PreIntermediate = () => {
           <img src="https://image.isu.pub/240209173620-c24997ef1d056f7f034f3c9a30aada84/jpg/page_1_thumb_large.jpg" alt="Writing 3" className="w-full rounded-lg shadow-lg"/>
         </div>
       </section>
+      <div class="py-12">
+      {/* Exam Link Section */}
+ <section className="text-center">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">Ready for the Exam?</h2>
+          <p className="text-xl text-gray-600 mb-6">Take the next step to validate your proficiency.</p>
+          <Link to="/codetwo" className="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">
+            Go to Exam Page
+          </Link>
+        </section>
+</div>
 
-     
-    </div>
-    <Footer />
+          </div>
+        )}
+      </div>
+      <Footer />
     </>
   );
 };

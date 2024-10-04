@@ -1,7 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import html2canvas from 'html2canvas';
 
 const Certificate = () => {
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []); 
   const [name, setName] = useState('');
   const certificateRef = useRef();
 

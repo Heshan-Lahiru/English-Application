@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../nav_footer/nav';
 import Footer from '../nav_footer/footer';
 import './home.css'
 const HomePage = () => {
- 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []); 
+
   const images = [
     'https://rukminim2.flixcart.com/image/850/1000/xif0q/book/l/t/r/understanding-and-using-english-grammar-introductory-b-original-imagu26hfyjfvtpu.jpeg?q=90&crop=false',
     'https://www.malikbooksellers.com/wp-content/uploads/2022/12/1662367385.jpg',
